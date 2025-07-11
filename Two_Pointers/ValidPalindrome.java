@@ -7,21 +7,21 @@ public class ValidPalindrome {
     }
     public static boolean checkPalindrome(String s) {
 
-        int left = 0;
-        int right = s.length() - 1;
+        int leftPointer = 0;
+        int rightPointer = s.length() - 1;
 
-        while(left<right){
-            while(left<right && !Character.isLetterOrDigit(s.charAt(left))){
-                left++;
+        while (leftPointer < rightPointer){
+            while (leftPointer < rightPointer && !Character.isLetterOrDigit(s.charAt(leftPointer))){
+                leftPointer++;
             }
-            while(left<right && !Character.isLetterOrDigit(s.charAt(right))){
-                right--;
+            while (leftPointer < rightPointer && !Character.isLetterOrDigit(s.charAt(rightPointer))){
+                rightPointer--;
             }
-            if(Character.toLowerCase(s.charAt(left)) != Character.toLowerCase(s.charAt(right))){
+            if (Character.toLowerCase(s.charAt(leftPointer)) != Character.toLowerCase(s.charAt(rightPointer))){
                 return false;
             }
-            left++;
-            right--;
+            leftPointer++;
+            rightPointer--;
         }
         return true;
     }
