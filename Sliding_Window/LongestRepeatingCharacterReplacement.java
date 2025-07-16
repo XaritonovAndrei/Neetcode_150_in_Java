@@ -18,9 +18,10 @@ public class LongestRepeatingCharacterReplacement {
         int answer = 0;
         int maxOccurance = 0;
 
-        for(int rightPointer = 0; rightPointer < s.length(); rightPointer++){
-            maxOccurance = Math.max(maxOccurance, ++freqArray[s.charAt(rightPointer) - 'A']);
-            if(rightPointer - leftPointer + 1 - maxOccurance > k){
+        for (int rightPointer = 0; rightPointer < s.length(); rightPointer++) {
+            maxOccurance = Math.max(maxOccurance, freqArray[s.charAt(rightPointer) - 'A']);
+            freqArray[s.charAt(rightPointer) - 'A']++;
+            if (rightPointer - leftPointer + 1 - maxOccurance > k) {
 
                 freqArray[s.charAt(leftPointer) - 'A']--;
                 leftPointer++;
